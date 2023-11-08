@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { APP_INTERCEPTOR, NestFactory } from '@nestjs/core';
 import { ApiResponseInterceptor } from '@avans-nx-workshop/backend/dto';
 import { AppModule } from './app/app.module';
@@ -17,6 +17,7 @@ async function bootstrap() {
   const corsOptions: CorsOptions = {};
   app.enableCors(corsOptions);
   app.useGlobalInterceptors(new ApiResponseInterceptor());
+  app.useGlobalPipes(new ValidationPipe()); // foutmeldingen laten zien
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
