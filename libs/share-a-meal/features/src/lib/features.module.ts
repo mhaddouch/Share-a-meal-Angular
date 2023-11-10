@@ -5,6 +5,7 @@ import { MealDetailComponent } from './meal/meal-detail/meal-detail.component';
 import { MealService } from './meal/meal.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
@@ -13,8 +14,14 @@ import { AboutComponent } from './about/about.component';
     MealDetailComponent,
     MealDetailComponent,
     AboutComponent,
+    DashboardComponent,
   ],
   providers: [MealService],
-  exports: [MealListComponent, MealDetailComponent, AboutComponent],
+  exports: [
+    MealListComponent,
+    MealDetailComponent,
+    AboutComponent,
+    DashboardComponent,
+  ],
 })
 export class FeaturesModule {}
